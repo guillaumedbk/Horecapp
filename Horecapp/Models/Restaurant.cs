@@ -1,6 +1,6 @@
 namespace Horecapp.Models;
 
-public class Restaurant
+public class Restaurant: IStoredObject
 {
     public int Id { get; set; }
     public string Name { get; set; }
