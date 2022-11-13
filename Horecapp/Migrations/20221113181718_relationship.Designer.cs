@@ -3,6 +3,7 @@ using System;
 using Horecapp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Horecapp.Migrations
 {
     [DbContext(typeof(HorecappDbContext))]
-    partial class HorecappDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221113181718_relationship")]
+    partial class relationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

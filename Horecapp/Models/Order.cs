@@ -7,4 +7,6 @@ public class Order: IStoredObject
     public DateTime OrderedAt { get; set; }
     //Many to one with Restaurant
     public Restaurant Restaurant { get; set; }
+    //One to many with Dish
+    public ICollection<Dish> Dish { get; set; }
 }

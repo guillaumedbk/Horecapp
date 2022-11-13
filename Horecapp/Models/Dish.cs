@@ -14,6 +14,7 @@ public class Dish: IStoredObject
         VEGAN
     }
     public string Reference { get; set; }
-    //Many to one relationship with Restaurant
+    //Many to one relationship with Restaurant & Order
     public Restaurant Restaurant { get; set; }
+    public Order? Order { get; set; }
 }

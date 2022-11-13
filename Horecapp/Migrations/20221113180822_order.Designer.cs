@@ -3,6 +3,7 @@ using System;
 using Horecapp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Horecapp.Migrations
 {
     [DbContext(typeof(HorecappDbContext))]
-    partial class HorecappDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221113180822_order")]
+    partial class order
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +31,6 @@ namespace Horecapp.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<float>("Price")
                         .HasColumnType("float");
 
@@ -43,8 +42,6 @@ namespace Horecapp.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
 
                     b.HasIndex("RestaurantId");
 
@@ -117,17 +114,11 @@ namespace Horecapp.Migrations
 
             modelBuilder.Entity("Horecapp.Models.Dish", b =>
                 {
-                    b.HasOne("Horecapp.Models.Order", "Order")
-                        .WithMany("Dish")
-                        .HasForeignKey("OrderId");
-
                     b.HasOne("Horecapp.Models.Restaurant", "Restaurant")
                         .WithMany("Dish")
                         .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Order");
 
                     b.Navigation("Restaurant");
                 });
@@ -141,11 +132,6 @@ namespace Horecapp.Migrations
                         .IsRequired();
 
                     b.Navigation("Restaurant");
-                });
-
-            modelBuilder.Entity("Horecapp.Models.Order", b =>
-                {
-                    b.Navigation("Dish");
                 });
 
             modelBuilder.Entity("Horecapp.Models.Restaurant", b =>
