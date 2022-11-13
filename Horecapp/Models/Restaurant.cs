@@ -20,6 +20,7 @@ public class Restaurant: IStoredObject
     public string Email { get; set; }
     public string Password { get; set; }
     public string TvaNumber { get; set; }
-    //One to many relationship with Dish
-    public ICollection<Dish> Dish { get; set; }
+    //One to many relationship with Dish & Order
+    public ICollection<Dish>? Dish { get; set; }
+    public ICollection<Order>? Order { get; set; }
 }
