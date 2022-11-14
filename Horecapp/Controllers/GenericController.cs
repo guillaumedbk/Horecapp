@@ -45,6 +45,17 @@ public class GenericController<T>: ControllerBase where T : class, IStoredObject
         return result.Entity;
     }
     
+    //Put
+    [HttpPut("{id:int}")]
+    public T Put(int id, [FromBody] T t)
+    {
+        t.Id = id;
+        var entityEntry = DbContext.Attach(t);
+        entityEntry.State = EntityState.Modified;
+        DbContext.SaveChanges();
+        return t;
+    }
+
     //Delete method to delete a Restaurant item
     [HttpDelete("{id:int}")]
     public ActionResult<bool> Delete(int id)
