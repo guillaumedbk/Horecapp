@@ -1,4 +1,5 @@
 using Horecapp.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -54,6 +55,16 @@ public class GenericController<T>: ControllerBase where T : class, IStoredObject
         entityEntry.State = EntityState.Modified;
         DbContext.SaveChanges();
         return t;
+    }
+    
+    //Patch
+    [HttpPatch("{id:int}")]
+    public T Patch(int id, [FromBody] JsonPatchDocument<T> patchDocument)
+    {
+        var baseObject = DbContext.Set<T>().Find(id);
+        patchDocument.ApplyTo(baseObject);
+        DbContext.SaveChanges();
+        return baseObject;
     }
 
     //Delete method to delete a Restaurant item
