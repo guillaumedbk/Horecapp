@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horecapp", "Horecapp\Horecapp.csproj", "{B8B1F6A5-3470-4A34-8E5F-AA7248A539BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horecapp.Tests", "Horecapp.Tests\Horecapp.Tests.csproj", "{C0493BA3-D0EF-4933-965D-4F47FCE54A63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{B8B1F6A5-3470-4A34-8E5F-AA7248A539BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8B1F6A5-3470-4A34-8E5F-AA7248A539BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8B1F6A5-3470-4A34-8E5F-AA7248A539BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0493BA3-D0EF-4933-965D-4F47FCE54A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0493BA3-D0EF-4933-965D-4F47FCE54A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0493BA3-D0EF-4933-965D-4F47FCE54A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0493BA3-D0EF-4933-965D-4F47FCE54A63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
