@@ -1,9 +1,10 @@
-using Horecapp.Models;
+using Horecapp.Domain.Models;
+using Horecapp.Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Horecapp.Controllers;
+namespace Horecapp.Api.Controllers;
 
 public class GenericController<T>: ControllerBase where T : class, IStoredObject
 {

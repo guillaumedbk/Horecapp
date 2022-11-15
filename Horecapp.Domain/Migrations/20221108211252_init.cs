@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿#nullable disable
+
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-#nullable disable
-
-namespace Horecapp.Migrations
+namespace Horecapp.Domain.Migrations
 {
     public partial class init : Migration
     {

@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿#nullable disable
 
-#nullable disable
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Horecapp.Migrations
+namespace Horecapp.Domain.Migrations
 {
     public partial class relationship : Migration
     {

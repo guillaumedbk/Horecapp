@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Horecapp.Models;
+namespace Horecapp.Domain.Models;
 
 public class HorecappDbContext : DbContext
 {

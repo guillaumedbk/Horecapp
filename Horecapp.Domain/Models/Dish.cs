@@ -1,4 +1,4 @@
-namespace Horecapp.Models;
+namespace Horecapp.Domain.Models;
 
 public class Dish: IStoredObject
 {

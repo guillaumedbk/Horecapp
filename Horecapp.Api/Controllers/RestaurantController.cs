@@ -1,8 +1,8 @@
-using Horecapp.Models;
+using Horecapp.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Horecapp.Controllers;
+namespace Horecapp.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

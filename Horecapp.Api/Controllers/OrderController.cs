@@ -1,6 +1,6 @@
-using Horecapp.Models;
+using Horecapp.Domain.Models;
 
-namespace Horecapp.Controllers;
+namespace Horecapp.Api.Controllers;
 
 public class OrderController: GenericController<Order>
 {

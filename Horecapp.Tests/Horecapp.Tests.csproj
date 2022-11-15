@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Horecapp\Horecapp.csproj" />
+      <ProjectReference Include="..\Horecapp.Api\Horecapp.Api.csproj" />
     </ItemGroup>
 
 </Project>

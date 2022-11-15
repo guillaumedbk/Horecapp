@@ -1,4 +1,5 @@
-using Horecapp.Models;
+using Horecapp.Domain.Models;
+using Horecapp.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
