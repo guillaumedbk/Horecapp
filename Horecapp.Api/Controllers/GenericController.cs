@@ -1,3 +1,4 @@
+using Horecapp.Domain.Interfaces;
 using Horecapp.Domain.Models;
 using Horecapp.Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
@@ -8,78 +9,57 @@ namespace Horecapp.Api.Controllers;
 
 public class GenericController<T>: ControllerBase where T : class, IStoredObject
 {
-    //dbContext for the interaction with database
-    protected HorecappDbContext DbContext;
+    //Controller needs to call the Service
+    private readonly ICrudService<T> _crudService;
 
-    public GenericController(HorecappDbContext dbContext)
+    public GenericController(ICrudService<T> crudService)
     {
-        DbContext = dbContext;
+        _crudService = crudService;
     }
     
     //GetAll method to retrieve all items from specific table T
-    [HttpGet]
+    [HttpGet, ProducesResponseType(StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status404NotFound)]
     public List<T> GetAll()
     {
-        return DbContext.Set<T>().ToList();
+        return _crudService.GetAll();
     }
     
     //GetById method to retrieve one item from T table 
-    [HttpGet("{id:int}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<T>> GetById(int id)
+    [HttpGet("{id:int}"), ProducesResponseType(StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status404NotFound)]
+    public IActionResult GetById(int id)
     {
-        var result = await DbContext.Set<T>().SingleOrDefaultAsync(t => t.Id == id);
+        var result = _crudService.GetById(id);
 
-        if (result == null)
-        {
-            return NotFound("Object not found");
-        }
-        return result;
+        if (result is null) return NotFound();
+        //TODO retrieve with DTO
+        return Ok(result);
     }
     
     //Add method to create new T item
     [HttpPost]
     public async Task<T> Add([FromBody] T t)
     {
-        var result = await DbContext.Set<T>().AddAsync(t);
-        await DbContext.SaveChangesAsync();
-        return result.Entity;
+        throw new NotImplementedException();
     }
     
     //Put
     [HttpPut("{id:int}")]
     public T Put(int id, [FromBody] T t)
     {
-        t.Id = id;
-        var entityEntry = DbContext.Attach(t);
-        entityEntry.State = EntityState.Modified;
-        DbContext.SaveChanges();
-        return t;
+        throw new NotImplementedException();
     }
     
     //Patch
     [HttpPatch("{id:int}")]
     public T Patch(int id, [FromBody] JsonPatchDocument<T> patchDocument)
     {
-        var baseObject = DbContext.Set<T>().Find(id);
-        patchDocument.ApplyTo(baseObject);
-        DbContext.SaveChanges();
-        return baseObject;
+        throw new NotImplementedException();
     }
 
     //Delete method to delete a Restaurant item
     [HttpDelete("{id:int}")]
     public ActionResult<bool> Delete(int id)
     {
-        var t = DbContext.Set<T>().SingleOrDefault(t => t.Id == id);
-        if (t == null)
-        {
-            return BadRequest("The object you try to delete doesn't exist");
-        }
-
-        DbContext.Set<T>().Remove(t);
-        DbContext.SaveChanges();
-        return Ok("Successfully deleted");
+        throw new NotImplementedException();
     }
 }
